@@ -1,5 +1,5 @@
 {
-  "name": "(practice)-230119",
+  "name": "230120",
   "version": "1.0.0",
   "description": "...shell npm init -y npm install express nunjucks axios cookie-parser ...",
   "main": "server.js",
