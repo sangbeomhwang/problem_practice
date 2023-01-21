@@ -7,11 +7,12 @@ const request = axios.create({
 class UserController {
   async getIndex(req, res, next) {
     try {
-      console.log(req.user);
+      console.log("main page", req.user);
       // console.log(req.cookies);
       // payload를 뽑아온 뒤 해당 string 값을 "JSON.parse()"를 써서 객체로 만든 뒤 userid와 userpw 값을 가져옴
       if (req.user === undefined) return res.render("index.html");
       const { userid, username } = req.user;
+
       res.render("index.html", {
         userid,
         username,
