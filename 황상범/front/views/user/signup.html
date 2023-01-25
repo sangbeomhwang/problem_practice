@@ -1,5 +1,16 @@
 {% extends 'layout/layout.html' %} {% block content %}
 
+<form
+  method="post"
+  action="/signup"
+  id="imageFrm"
+  enctype="multipart/form-data"
+>
+  <p class="title">프로필 이미지</p>
+  <input type="file" name="upload" />
+  <button type="submit">전송</button>
+</form>
+
 <form method="post" action="/signup" id="signupFrm">
   <h2 id="bannerText">회원가입</h2>
   <ul class="container">
@@ -98,6 +109,23 @@
   </ul>
   <button type="submit" class="button">등록하기</button>
 </form>
+
+<script type="text/javascript">
+  const imageFrm = document.querySelector("#imageFrm");
+  imageFrm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // const { subject, upload } = e.target;
+
+    const body = new FormData(e.target);
+    const response = await axios.post("http://localhost:3001", body, {
+      headers: {
+        ["Content-type"]: "multipart/form-data",
+      },
+    });
+    console.log(response);
+  });
+</script>
 
 <script type="module" src="/js/module/join.js"></script>
 
